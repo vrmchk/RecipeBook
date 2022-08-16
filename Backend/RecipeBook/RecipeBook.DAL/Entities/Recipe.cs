@@ -8,4 +8,5 @@ public class Recipe : BaseEntity
     public IEnumerable<string> Ingredients { get; set; } = new List<string>();
     public int Servings { get; set; }
     public string Instructions { get; set; } = string.Empty;
+    public IEnumerable<User> UsersNavigation { get; set; } = new List<User>();
 }
