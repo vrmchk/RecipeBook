@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-using System.Net.Http.Json;
-using System.Text.Json;
+﻿using System.Net.Http.Json;
 using AutoMapper;
 using Microsoft.Extensions.Configuration;
 using RecipeBook.BLL.DTOs.Recipe;
@@ -25,8 +23,8 @@ public class RecipeSearchService : IRecipeSearchService
         var response = await _client.GetAsync(GetRequestUri(title));
         //put into try catch with custom Exception
         response.EnsureSuccessStatusCode();
-        var searchDtos = await response.Content.ReadFromJsonAsync<IEnumerable<RecipeSearchDto>>();
-        return _mapper.Map<IEnumerable<RecipeDto>>(searchDtos);
+        var searchResults = await response.Content.ReadFromJsonAsync<IEnumerable<RecipeSearchDto>>();
+        return _mapper.Map<IEnumerable<RecipeDto>>(searchResults);
     }
 
     private string GetRequestUri(string title) => $"https://api.api-ninjas.com/v1/recipe?query={title}";
