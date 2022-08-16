@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeBook.WebApi", "RecipeBook.WebApi\RecipeBook.WebApi.csproj", "{B21F2CEF-6679-4EF6-9351-9F58BD651AD3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeBook.BLL", "RecipeBook.BLL\RecipeBook.BLL.csproj", "{C7799791-F3A2-4571-B746-2BC872B94AA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeBook.DAL", "RecipeBook.DAL\RecipeBook.DAL.csproj", "{1D1820F6-8835-427C-895B-047C3F02F7BB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B21F2CEF-6679-4EF6-9351-9F58BD651AD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B21F2CEF-6679-4EF6-9351-9F58BD651AD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B21F2CEF-6679-4EF6-9351-9F58BD651AD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B21F2CEF-6679-4EF6-9351-9F58BD651AD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7799791-F3A2-4571-B746-2BC872B94AA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7799791-F3A2-4571-B746-2BC872B94AA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7799791-F3A2-4571-B746-2BC872B94AA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7799791-F3A2-4571-B746-2BC872B94AA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D1820F6-8835-427C-895B-047C3F02F7BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D1820F6-8835-427C-895B-047C3F02F7BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D1820F6-8835-427C-895B-047C3F02F7BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D1820F6-8835-427C-895B-047C3F02F7BB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
