@@ -1,8 +1,7 @@
-﻿namespace RecipeBook.BLL.Models.DTOs;
+﻿namespace RecipeBook.BLL.Models.DTOs.Search;
 
-public class RecipeDTO
+public class RecipeDisplayDTO
 {
-    public int Id { get; set; }
     public string Title { get; set; } = string.Empty;
     public IEnumerable<string> Ingredients { get; set; } = new List<string>();
     public int Servings { get; set; }

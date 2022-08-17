@@ -1,4 +1,4 @@
-﻿namespace RecipeBook.BLL.Models.DTOs;
+﻿namespace RecipeBook.BLL.Models.DTOs.Search;
 
 public class RecipeSearchDTO
 {
