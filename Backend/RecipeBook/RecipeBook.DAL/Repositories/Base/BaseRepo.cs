@@ -21,7 +21,7 @@ public abstract class BaseRepo<T> : IRepo<T> where T : BaseEntity, new()
     public virtual async Task<IEnumerable<T>> GetAllAsync() => await Table.ToListAsync();
 
     public virtual async Task<T?> FindAsync(int id) => await Table.FindAsync(id);
-    public async Task<T?> FindAsNoTrackingAsync(int id)
+    public virtual async Task<T?> FindAsNoTrackingAsync(int id)
     {
         return await Table.AsNoTracking().FirstOrDefaultAsync(entity => entity.Id == id);
     }
