@@ -17,6 +17,6 @@ public class SearchController : ControllerBase
     [HttpGet("{title}")]
     public async Task<IActionResult> Search(string title)
     {
-        return Ok(await _searchService.Search(title));
+        return Ok(await _searchService.SearchAsync(title));
     }
 }
