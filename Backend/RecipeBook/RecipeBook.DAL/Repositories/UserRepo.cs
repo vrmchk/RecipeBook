@@ -11,18 +11,18 @@ public class UserRepo : BaseRepo<User>, IUserRepo
     public UserRepo(ApplicationContext context) : base(context) { }
     internal UserRepo(DbContextOptions<ApplicationContext> options) : base(options) { }
 
+    public override async Task<IEnumerable<User>> GetAllAsync()
+    {
+        return await Task.Run(() => Table
+            .Include(u => u.Recipes));
+    }
+
     public async Task<User?> FindByEmailAsync(string email)
     {
         return await Table
             .Where(u => u.Email == email)
             .Include(u => u.Recipes)
             .FirstOrDefaultAsync();
-    }
-
-    public override async Task<IEnumerable<User>> GetAllAsync()
-    {
-        return await Task.Run(() => Table
-            .Include(u => u.Recipes));
     }
 
     public override async Task<User?> FindAsync(int id)

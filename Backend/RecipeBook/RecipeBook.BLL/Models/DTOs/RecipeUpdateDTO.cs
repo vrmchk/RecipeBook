@@ -4,9 +4,6 @@ namespace RecipeBook.BLL.Models.DTOs;
 
 public class RecipeUpdateDTO
 {
-    [Required]
-    public int Id { get; set; }
-    
     [Required, MinLength(2)]
     public string Title { get; set; } = string.Empty;
 

@@ -37,38 +37,23 @@ public class UserRecipesController : ControllerBase
     public async Task<IActionResult> AddRecipe([FromBody] RecipeCreateDTO dto)
     {
         int userId = HttpContext.GetUserId();
-        var recipeDTO = await _service.AddRecipeAsync(userId, dto);
-        // return CreatedAtAction()
-        return Ok(recipeDTO);
+        var resultDTO = await _service.AddRecipeAsync(userId, dto);
+        return CreatedAtAction(nameof(GetRecipe), new {id = resultDTO.Id}, resultDTO);
     }
 
     [HttpPut("{id}")]
     public async Task<IActionResult> UpdateRecipe(int id, [FromBody] RecipeUpdateDTO dto)
     {
-        try
-        {
-            int userId = HttpContext.GetUserId();
-            var recipeDTO = await _service.UpdateRecipeAsync(userId, id, dto);
-            return Ok(recipeDTO);
-        }
-        catch (Exception e)
-        {
-            return BadRequest(new {error = e.Message});
-        }
+        int userId = HttpContext.GetUserId();
+        var recipeDTO = await _service.UpdateRecipeAsync(userId, id, dto);
+        return Ok(recipeDTO);
     }
 
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteRecipe(int id)
     {
-        try
-        {
-            int userId = HttpContext.GetUserId();
-            await _service.DeleteRecipeAsync(userId, id);
-            return NoContent();
-        }
-        catch (Exception e)
-        {
-            return BadRequest(new {error = e.Message});
-        }
+        int userId = HttpContext.GetUserId();
+        await _service.DeleteRecipeAsync(userId, id);
+        return NoContent();
     }
 }
