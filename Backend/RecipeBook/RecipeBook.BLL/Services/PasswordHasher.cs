@@ -6,7 +6,7 @@ namespace RecipeBook.BLL.Services;
 
 public class PasswordHasher : IPasswordHasher
 {
-    public string GenerateSalt(int nSalt) => Convert.ToBase64String(RandomNumberGenerator.GetBytes(nSalt));
+    public string GenerateSalt() => Convert.ToBase64String(RandomNumberGenerator.GetBytes(8));
 
     public string HashPassword(string password, string salt)
     {
