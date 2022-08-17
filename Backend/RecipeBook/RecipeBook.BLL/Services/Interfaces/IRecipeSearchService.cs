@@ -4,5 +4,5 @@ namespace RecipeBook.BLL.Services.Interfaces;
 
 public interface IRecipeSearchService
 {
-    Task<IEnumerable<RecipeDto>> SearchAsync(string title);
+    Task<IEnumerable<RecipeDTO>> SearchAsync(string title);
 }

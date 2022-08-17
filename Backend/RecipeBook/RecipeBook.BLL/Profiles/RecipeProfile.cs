@@ -8,7 +8,7 @@ public class RecipeProfile : Profile
 {
     public RecipeProfile()
     {
-        CreateMap<RecipeSearchDto, RecipeDto>()
+        CreateMap<RecipeSearchDTO, RecipeDTO>()
             .ForMember(dest => dest.Ingredients,
                 options => options.MapFrom(searchDto => searchDto.IngredientsToEnumerable()))
             .ForMember(dest => dest.Servings,

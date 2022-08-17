@@ -1,6 +1,6 @@
 ﻿namespace RecipeBook.BLL.Models.DTOs;
 
-public class RecipeSearchDto
+public class RecipeSearchDTO
 {
     public string Title { get; set; } = string.Empty;
     public string Ingredients { get; set; } = string.Empty;
