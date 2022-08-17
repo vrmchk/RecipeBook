@@ -1,4 +1,4 @@
-﻿namespace RecipeBook.BLL.Models.DTOs.Recipe;
+﻿namespace RecipeBook.BLL.Models.DTOs;
 
 public class RecipeDto
 {

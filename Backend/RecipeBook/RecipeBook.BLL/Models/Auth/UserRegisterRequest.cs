@@ -9,5 +9,4 @@ public class UserRegisterRequest
 
     [Required, StringLength(15, MinimumLength = 8)]
     public string Password { get; set; } = string.Empty;
-    
 }

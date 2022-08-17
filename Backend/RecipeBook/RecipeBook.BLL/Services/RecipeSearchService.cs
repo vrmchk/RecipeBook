@@ -1,7 +1,7 @@
 ﻿using System.Net.Http.Json;
 using AutoMapper;
 using Microsoft.Extensions.Configuration;
-using RecipeBook.BLL.Models.DTOs.Recipe;
+using RecipeBook.BLL.Models.DTOs;
 using RecipeBook.BLL.Services.Interfaces;
 
 namespace RecipeBook.BLL.Services;

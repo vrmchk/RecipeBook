@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using RecipeBook.BLL.Extensions;
-using RecipeBook.BLL.Models.DTOs.Recipe;
+using RecipeBook.BLL.Models.DTOs;
 
 namespace RecipeBook.BLL.Profiles;
 
