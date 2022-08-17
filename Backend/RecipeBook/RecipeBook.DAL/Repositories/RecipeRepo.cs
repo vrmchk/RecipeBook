@@ -11,7 +11,7 @@ public class RecipeRepo : BaseRepo<Recipe>, IRecipeRepo
     public RecipeRepo(ApplicationContext context) : base(context) { }
     internal RecipeRepo(DbContextOptions<ApplicationContext> options) : base(options) { }
 
-    public async Task<Recipe?> FindByTitle(string title)
+    public async Task<Recipe?> FindByTitleAsync(string title)
     {
         return await Table.FirstOrDefaultAsync(recipe => recipe.Title == title);
     }
