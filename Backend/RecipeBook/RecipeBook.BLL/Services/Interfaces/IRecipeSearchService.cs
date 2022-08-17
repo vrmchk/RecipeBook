@@ -1,8 +1,8 @@
-﻿using RecipeBook.BLL.DTOs.Recipe;
+﻿using RecipeBook.BLL.Models.DTOs.Recipe;
 
 namespace RecipeBook.BLL.Services.Interfaces;
 
 public interface IRecipeSearchService
 {
-    Task<IEnumerable<RecipeDto>> Search(string title);
+    Task<IEnumerable<RecipeDto>> SearchAsync(string title);
 }
