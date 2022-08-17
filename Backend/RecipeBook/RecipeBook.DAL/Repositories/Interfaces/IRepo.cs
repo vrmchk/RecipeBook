@@ -1,7 +1,11 @@
-﻿namespace RecipeBook.DAL.Repositories.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
+using RecipeBook.DAL.Entities.Base;
 
-public interface IRepo<T> : IDisposable
+namespace RecipeBook.DAL.Repositories.Interfaces;
+
+public interface IRepo<T> : IDisposable where T : BaseEntity, new()
 {
+    public DbSet<T> Table { get; }
     Task<IEnumerable<T>> GetAllAsync();
     Task<T?> FindAsync(int id);
     Task<T?> FindAsNoTrackingAsync(int id);

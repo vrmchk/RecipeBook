@@ -19,6 +19,7 @@ public class ApplicationContext : DbContext
         modelBuilder.Entity<User>()
             .HasMany(user => user.Recipes)
             .WithOne(recipe => recipe.UserNavigation)
-            .HasForeignKey(recipe => recipe.UserId);
+            .HasForeignKey(recipe => recipe.UserId)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

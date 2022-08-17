@@ -8,7 +8,7 @@ namespace RecipeBook.DAL.Repositories.Base;
 public abstract class BaseRepo<T> : IRepo<T> where T : BaseEntity, new()
 {
     protected ApplicationContext Context { get; }
-    protected DbSet<T> Table { get; }
+    public DbSet<T> Table { get; }
 
     public BaseRepo(ApplicationContext context)
     {

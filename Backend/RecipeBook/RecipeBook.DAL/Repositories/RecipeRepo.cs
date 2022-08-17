@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Diagnostics;
+using Microsoft.EntityFrameworkCore;
 using RecipeBook.DAL.Context;
 using RecipeBook.DAL.Entities;
 using RecipeBook.DAL.Extensions;
@@ -12,31 +13,21 @@ public class RecipeRepo : BaseRepo<Recipe>, IRecipeRepo
     public RecipeRepo(ApplicationContext context) : base(context) { }
     internal RecipeRepo(DbContextOptions<ApplicationContext> options) : base(options) { }
 
-    public async Task<IEnumerable<Recipe>> FindByTitleAsync(string title)
-    {
-        return await Task.Run(() => Table
-            .Where(r => r.Title.ContainsIgnoreCase(title))
-            .Include(r => r.Ingredients)
-            .Include(r => r.UserNavigation)
-            .Include(r => r.UserId));
-    }
-
     public override async Task<IEnumerable<Recipe>> GetAllAsync()
     {
         return await Task.Run(() => Table
             .Include(r => r.Ingredients)
-            .Include(r => r.UserNavigation)
-            .Include(r => r.UserId));
+            .Include(r => r.UserNavigation));
     }
 
     public override async Task<Recipe?> FindAsync(int id)
     {
-        return await Table
+        var recipe = await Table
             .Where(r => r.Id == id)
             .Include(r => r.Ingredients)
             .Include(r => r.UserNavigation)
-            .Include(r => r.UserId)
             .FirstOrDefaultAsync();
+        return recipe;
     }
 
     public override async Task<Recipe?> FindAsNoTrackingAsync(int id)
@@ -46,7 +37,6 @@ public class RecipeRepo : BaseRepo<Recipe>, IRecipeRepo
             .Where(r => r.Id == id)
             .Include(r => r.Ingredients)
             .Include(r => r.UserNavigation)
-            .Include(r => r.UserId)
             .FirstOrDefaultAsync();
     }
 }
