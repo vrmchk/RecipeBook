@@ -17,14 +17,16 @@ public class RecipeRepo : BaseRepo<Recipe>, IRecipeRepo
         return await Task.Run(() => Table
             .Where(r => r.Title.ContainsIgnoreCase(title))
             .Include(r => r.Ingredients)
-            .Include(r => r.UsersNavigation));
+            .Include(r => r.UserNavigation)
+            .Include(r => r.UserId));
     }
 
     public override async Task<IEnumerable<Recipe>> GetAllAsync()
     {
         return await Task.Run(() => Table
             .Include(r => r.Ingredients)
-            .Include(r => r.UsersNavigation));
+            .Include(r => r.UserNavigation)
+            .Include(r => r.UserId));
     }
 
     public override async Task<Recipe?> FindAsync(int id)
@@ -32,7 +34,8 @@ public class RecipeRepo : BaseRepo<Recipe>, IRecipeRepo
         return await Table
             .Where(r => r.Id == id)
             .Include(r => r.Ingredients)
-            .Include(r => r.UsersNavigation)
+            .Include(r => r.UserNavigation)
+            .Include(r => r.UserId)
             .FirstOrDefaultAsync();
     }
 
@@ -42,7 +45,8 @@ public class RecipeRepo : BaseRepo<Recipe>, IRecipeRepo
             .AsNoTracking()
             .Where(r => r.Id == id)
             .Include(r => r.Ingredients)
-            .Include(r => r.UsersNavigation)
+            .Include(r => r.UserNavigation)
+            .Include(r => r.UserId)
             .FirstOrDefaultAsync();
     }
 }

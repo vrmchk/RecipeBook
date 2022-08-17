@@ -18,6 +18,7 @@ public class ApplicationContext : DbContext
     {
         modelBuilder.Entity<User>()
             .HasMany(user => user.Recipes)
-            .WithMany(recipe => recipe.UsersNavigation);
+            .WithOne(recipe => recipe.UserNavigation)
+            .HasForeignKey(recipe => recipe.UserId);
     }
 }
