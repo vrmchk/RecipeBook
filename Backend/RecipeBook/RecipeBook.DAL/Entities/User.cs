@@ -8,5 +8,5 @@ public class User : BaseEntity
     public bool EmailConfirmed { get; set; }
     public string PasswordHash { get; set; } = string.Empty;
     public string Salt { get; set; } = string.Empty;
-    public IEnumerable<Recipe> Recipes { get; set; } = new List<Recipe>();
+    public IEnumerable<Recipe> Recipes { get; set; } = null!;
 }

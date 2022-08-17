@@ -50,7 +50,7 @@ public class AuthService : IAuthService
         bool passwordCorrect = existingUser.PasswordHash ==
                                _passwordHasher.HashPassword(loginUser.Password, existingUser.Salt);
         if (!passwordCorrect)
-            return new AuthResult {Success = false, Errors = new List<string> {"Invalid password"}};
+            return new AuthResult {Success = false, Errors = new[] {"Invalid password"}};
 
         return new AuthResult {Success = true, Token = GenerateJwtToken(existingUser)};
     }
