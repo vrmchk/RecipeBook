@@ -17,10 +17,12 @@ builder.Services.AddAutoMapper(config => config.AddProfiles(new[] {new RecipePro
 builder.Services.AddDbContext<ApplicationContext>(options => {
     options.UseSqlite(builder.Configuration["Secrets:ConnectionString"]);
 });
+builder.Services.AddScoped<IRecipeRepo, RecipeRepo>();
 builder.Services.AddScoped<IUserRepo, UserRepo>();
 builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
 builder.Services.AddSingleton<IRecipeSearchService, RecipeSearchService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IUserRecipesService, UserRecipesService>();
 builder.Services.AddJwtAuthentication(builder.Configuration);
 
 builder.Services.AddControllers();
@@ -36,7 +38,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
 app.UseAuthentication();
 app.MapControllers();
