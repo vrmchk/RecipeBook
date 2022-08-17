@@ -1,6 +1,7 @@
 ﻿using System.Net.Http.Json;
 using AutoMapper;
 using Microsoft.Extensions.Configuration;
+using RecipeBook.BLL.Exceptions;
 using RecipeBook.BLL.Models.DTOs.Search;
 using RecipeBook.BLL.Services.Interfaces;
 
@@ -21,8 +22,15 @@ public class RecipeSearchService : IRecipeSearchService
     public async Task<IEnumerable<RecipeDisplayDTO>> SearchAsync(string title)
     {
         var response = await _client.GetAsync(GetRequestUri(title));
-        //put into try catch with custom Exception
-        response.EnsureSuccessStatusCode();
+        try
+        {
+            response.EnsureSuccessStatusCode();
+        }
+        catch (HttpRequestException ex)
+        {
+            throw new SearchFailedException(nameof(response), ex.Message, ex);
+        }
+
         var searchResults = await response.Content.ReadFromJsonAsync<IEnumerable<RecipeSearchDTO>>();
         return _mapper.Map<IEnumerable<RecipeDisplayDTO>>(searchResults);
     }

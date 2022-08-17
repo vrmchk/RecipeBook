@@ -1,8 +1,6 @@
-﻿using System.Diagnostics;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using RecipeBook.DAL.Context;
 using RecipeBook.DAL.Entities;
-using RecipeBook.DAL.Extensions;
 using RecipeBook.DAL.Repositories.Base;
 using RecipeBook.DAL.Repositories.Interfaces;
 
