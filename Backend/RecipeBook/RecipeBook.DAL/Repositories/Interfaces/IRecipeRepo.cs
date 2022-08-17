@@ -4,5 +4,5 @@ namespace RecipeBook.DAL.Repositories.Interfaces;
 
 public interface IRecipeRepo : IRepo<Recipe>
 {
-    Task<Recipe?> FindByTitle(string title);
+    Task<Recipe?> FindByTitleAsync(string title);
 }

@@ -2,10 +2,11 @@
 
 public interface IRepo<T> : IDisposable
 {
-    Task<IEnumerable<T>> GetAll();
-    Task<T?> Find(int id);
-    Task<int> Add(T entity, bool persist);
-    Task<int> Update(T entity, bool persist);
-    Task<int> Delete(T entity, bool persist);
+    Task<IEnumerable<T>> GetAllAsync();
+    Task<T?> FindAsync(int id);
+    Task<T?> FindAsNoTrackingAsync(int id);
+    Task<int> AddAsync(T entity, bool persist = true);
+    Task<int> UpdateAsync(T entity, bool persist = true);
+    Task<int> DeleteAsync(T entity, bool persist = true);
     Task<int> SaveChangesAsync();
 }

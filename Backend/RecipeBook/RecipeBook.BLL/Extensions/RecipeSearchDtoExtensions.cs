@@ -1,4 +1,4 @@
-﻿using RecipeBook.BLL.DTOs.Recipe;
+﻿using RecipeBook.BLL.Models.DTOs.Recipe;
 
 namespace RecipeBook.BLL.Extensions;
 
